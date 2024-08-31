@@ -9,9 +9,6 @@ let theme = createTheme({
         main: '#4f8e3e'
       },
     },
-    typography: {
-        fontFamily: "Roboto"
-    }
   
   });
 
