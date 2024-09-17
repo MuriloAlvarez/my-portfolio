@@ -42,7 +42,7 @@ export default function Hero() {
           </ContentWrapper>
         </Container>
       </StyledHero>
-      <div>oi</div>
+      <div>oi teste</div>
     </>
   );
 }
