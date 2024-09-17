@@ -11,7 +11,7 @@ const StyledButton: React.FC<StyledButtonProps> = ({children}) => {
        backgroundColor: "transparent",
        border: `1px solid ${theme.palette.primary.contrastText}`,
        borderRadius: "6px",
-       padding: "8px 20px",
+       padding: "8px 30px",
        color: `${theme.palette.primary.contrastText}`,
        width: "100%",
        display: "inline-flex",
@@ -26,11 +26,9 @@ const StyledButton: React.FC<StyledButtonProps> = ({children}) => {
       })) 
 
   return (
-    < >
-<StyleButton>
+    <StyleButton>
 {children}
 </StyleButton>
-    </>
   )
 }
 
