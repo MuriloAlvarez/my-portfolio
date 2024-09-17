@@ -1,62 +1,95 @@
-import {Container, Grid, styled, Typography } from "@mui/material"
-import Avatar from "../../../../assets/images/profilePortfolio.jpg"
-import DownloadingIcon from '@mui/icons-material/Downloading';
-import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
+import { Container, styled, Typography } from "@mui/material";
+import Avatar from "../../../../assets/images/profilePortfolio.jpg";
+import DownloadingIcon from "@mui/icons-material/Downloading";
+import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import StyledButton from "../../../../components/styledButton/styledButton";
 
-const Hero = () => {
-  
-  const StyledHero = styled("div")(({theme}) => ({
-    backgroundColor: theme.palette.primary.main,
-    height: "100vh"
-  })) 
-
-  const StyledImg = styled("img")(() => ({
-    width: "100%",
-    borderRadius: "50%"
-  })) 
-
-    return (
-      <>
+export default function Hero() {
+  return (
+    <>
       <StyledHero>
-        <Container maxWidth= "lg">
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
-            <StyledImg src={Avatar}/>
-            </Grid>
+        <Container maxWidth="lg">
+          <ContentWrapper>
+            <StyledImg src={Avatar} alt="Murilo Alvarez" />
+            <TextSection>
+              <Typography color="primary.contrastText" variant="h1" sx={{
+                  fontSize: {
+                    xs: "50px",
 
-            <Grid item xs={12} md={8}>  
-              <Typography color="primary.contrastText" textAlign= "center" variant="h1">Murilo Alvarez</Typography>
-              <Typography color="primary.contrastText" textAlign= "center" variant="h2">UX/UI Design</Typography>
-              
-              <Grid container display= "flex" justifyContent= "center">
-                <Grid item xs={10} md={4} display= "flex" justifyContent= "center">
+                    lg: "80px",
+                  },
+                }}>
+                Murilo Alvarez
+              </Typography>
+              <Typography color="primary.contrastText" variant="h3">
+                UX/UI Design
+              </Typography>
+              <Typography color="primary.contrastText" variant="h3">
+                Front-End Developer
+              </Typography>
 
-                  <StyledButton>
-                    <DownloadingIcon />
-                    <Typography>
-                      Download CV
-                    </Typography>
-                  </StyledButton>
-
-
-                </Grid>
-                <Grid item xs={10} md={4} display= "flex" justifyContent= "center">
-                  <StyledButton>
-                    <ForwardToInboxIcon />
-                    <Typography>
-                     Entrar em contato
-                    </Typography>
-                  </StyledButton>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
+              <ButtonContainer>
+                <StyledButton>
+                  <DownloadingIcon />
+                  <Typography>Download CV</Typography>
+                </StyledButton>
+                <StyledButton>
+                  <ForwardToInboxIcon />
+                  <Typography>Entrar em contato</Typography>
+                </StyledButton>
+              </ButtonContainer>
+            </TextSection>
+          </ContentWrapper>
         </Container>
       </StyledHero>
-      </>
-      
-    )
-  }
-  
-  export default Hero
+      <div>oi</div>
+    </>
+  );
+}
+const StyledHero = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  height: "100vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "auto",
+}));
+
+const ContentWrapper = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  width: "100%",
+  maxWidth: "1200px",
+  padding: "0 16px",
+  "@media (max-width: 600px)": {
+    flexDirection: "column",
+    gap: "10px",
+  },
+}));
+
+const StyledImg = styled("img")(() => ({
+  width: "100%",
+  maxWidth: "400px",
+  borderRadius: "50%",
+}));
+
+const TextSection = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "20px",
+  textAlign: "center",
+}));
+
+const ButtonContainer = styled("div")(() => ({
+  display: "flex",
+  gap: "20px",
+  justifyContent: "center",
+  marginTop: "40px",
+  width: "500px",
+  "@media (max-width: 600px)": {
+    flexDirection: "column",
+    gap: "10px",
+  },
+}));
